@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>My Vue App</title>
+    <!-- Load Vue 3 from CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="count++">{{ count }}  
+      </button>
+    </div>
+    <script>
+        const { createApp, ref } = Vue  // Get createApp from Vue 3 global
+        // Create the app instance
+        createApp({
+          setup() {
+            const count = ref(0)
+            return {
+              count
+            }
+          }
+        // Mount it to the DOM  
+        }).mount('#app')
+    </script>
+  </body>
+</html>
