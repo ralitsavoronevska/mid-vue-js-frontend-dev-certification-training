@@ -1,0 +1,3 @@
+- The modal overlay appears with a nice transition
+- The overlay (dark background) fades in
+- The modal itself slides in

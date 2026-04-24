@@ -1,5 +1,6 @@
 <script setup>
 import { XMarkIcon } from "@heroicons/vue/20/solid";
+
 defineProps({
   title: { type: String, default: null },
 });

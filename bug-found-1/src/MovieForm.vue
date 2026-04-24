@@ -2,6 +2,7 @@
 import { reactive } from "vue";
 
 const emit = defineEmits(["update:modelValue", "cancel"]);
+
 const props = defineProps({
   modelValue: { type: Object, default: null },
 });
@@ -12,6 +13,7 @@ const genres = reactive([
   { text: "Action", value: "Action" },
   { text: "Comedy", value: "Comedy" },
 ]);
+
 const errors = reactive({
   name: null,
   description: null,
@@ -57,6 +59,7 @@ function validate() {
 
   return valid;
 }
+
 function cancelForm() {
   cleanUpForm();
   emit("cancel");

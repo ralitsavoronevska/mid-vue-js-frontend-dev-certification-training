@@ -18,15 +18,18 @@ function updateRating(id, rating) {
     return movie;
   });
 }
+
 function removeMovie(id) {
   movies.value = movies.value.filter((movie) => movie.id !== id);
   console.log("remove movie", id);
   console.log("movies after remove", movies.value);
 }
+
 function editMovie(id) {
   currentMovie.value = movies.value.find((movie) => movie.id === id);
   showForm();
 }
+
 function saveMovie(data) {
   const isNew = !movies.value.find((movie) => movie.id === data.id);
   if (isNew) {
@@ -35,6 +38,7 @@ function saveMovie(data) {
     updateMovie(data);
   }
 }
+
 function updateMovie(data) {
   movies.value = movies.value.map((m) => {
     if (m.id === data.id) {
@@ -45,6 +49,7 @@ function updateMovie(data) {
   });
   hideForm();
 }
+
 function addMovie(data) {
   movies.value.push(data);
   hideForm();
@@ -52,22 +57,27 @@ function addMovie(data) {
 
 // movie form
 const showMovieForm = ref(false);
+
 function hideForm() {
   showMovieForm.value = false;
   currentMovie.value = null;
 }
+
 function showForm() {
   showMovieForm.value = true;
 }
+
 const averageRating = computed(() => {
   const avg = movies.value
     .map((movie) => parseInt(movie.rating || 0))
     .reduce((a, b) => a + b, 0);
   return Number(avg / movies.value.length).toFixed(1);
 });
+
 const totalMovies = computed(() => {
   return movies.value.length;
 });
+
 function removeRatings() {
   movies.value = movies.value.map((movie) => {
     movie.rating = null;
