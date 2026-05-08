@@ -1,0 +1,1 @@
+- [ ] The name input is automatically focused when the modal overlay opens
